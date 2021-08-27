@@ -3,20 +3,8 @@ import { Link } from 'react-router-dom'
 
 import Logo from '../../public/logo.png'
 import Hamburger from '../../public/hamburger.svg'
-import ChildTop from '../../public/child-top.jpeg'
-import ChildBottom from '../../public/child-bot.jpeg'
-import { List, ListItem } from '@material-ui/core';
-import background from "../assets/LandingPage1.jpg";
-function ListItemLink(props) {
-    return <ListItem button component="a" {...props} />;
-  }
 
-const P1 = () =>{
-    <div style={{ backgroundImage: `url(background)`, 
-                  height: '100%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' 
-                  
-                }}><span>o</span></div>
-}
+
 const NavBar = () => {
     const [sidebarToggle, setSidebarToggle] = useState(false)
 
@@ -27,16 +15,27 @@ const NavBar = () => {
 
     return (
         <div>
-            <div className='navbar flex h-24 text-sm items-center justify-between px-6 bg-blue-200 text-white'>
-                <div>
-                    <img className='h-16 w-auto' src={Logo} alt='SHG' />
+            <div className='navbar flex h-24 text-xs items-center justify-between px-6 bg-blue-200 text-white'>
+                <div className='space-x-4 flex items-center'>
+                    <img className='h-12 w-auto' src={Logo} alt='SHG' />
+                    <button className='hover:underline'>How it Works</button>
+                    <button className='hover:underline'>Explore Lessons</button>
+                    <button className='hover:underline'>Schools and Homes</button>
+                    <button className='hover:underline'>Students</button>
+                    <div className='relative'>
+                        <input placeholder='Enter Code' className='bg-blue-200 py-2 px-2 border-2 border-white rounded-xl placeholder-white'/>
+                        <svg className="h-5 w-5 absolute top-2 right-2 fill-current cursor-pointer" viewBox="0 0 20 20">
+                            <path d="M12.522,10.4l-3.559,3.562c-0.172,0.173-0.451,0.176-0.625,0c-0.173-0.173-0.173-0.451,0-0.624l3.248-3.25L8.161,6.662c-0.173-0.173-0.173-0.452,0-0.624c0.172-0.175,0.451-0.175,0.624,0l3.738,3.736C12.695,9.947,12.695,10.228,12.522,10.4 M18.406,10c0,4.644-3.764,8.406-8.406,8.406c-4.644,0-8.406-3.763-8.406-8.406S5.356,1.594,10,1.594C14.643,1.594,18.406,5.356,18.406,10M17.521,10c0-4.148-3.374-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.147,17.521,17.521,14.147,17.521,10"></path>
+                        </svg>
+                    </div>
+                    
                 </div>
                 <div className='space-x-4 flex items-center'>
                     <button className='px-6 py-2 border-2 hover:bg-blue-100 border-white rounded-full'>
-                        <Link to='/admin-login'>Admin Sign In</Link>
+                        <Link to='/quote'>Request a Quote</Link>
                     </button>
                     <button className='px-6 py-2 border-2 hover:bg-blue-100 border-white rounded-full'>
-                        <Link to='/quote'>Request a Quote</Link>
+                        <Link to='/schedule-demo'>Schedule a Demo</Link>
                     </button>
                     <button className='px-6 py-2 border-2 hover:bg-green-500 border-white rounded-full'>
                         <Link to='/signup'>Sign Up for Free</Link>
@@ -65,55 +64,46 @@ const NavBar = () => {
                 <div className='pl-2'><Link to='/signup'>Sign Up</Link></div>
                 <div className='pl-2'><Link to='/pricing'>Pricing</Link></div>
                 <div className='pl-2'><Link to='/blog'>Blog</Link></div>
-                <div className='pl-2'><Link to='/library'>Library</Link></div>
             </div>
         </div>
     )
 }
 
 
-const LandingPage = () => {
+const Library = () => {
     return (
-        <div style = {{   //backgroundColor: "#5B77FF",
-        backgroundImage: `url(${background})`,// no-repeat center center fixed,
-        backgroundSize: 'cover', width:'100%', height: '100%'
-            // backgroundImage: "linear-gradient(to bottom left, #5B77FF 80%, white 20%)" 
-            }}>
-            <NavBar /><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            {/* <div //style = {{width: 0,height: 0, borderTop: "100px solid gray", borderRight: "100px solid transparent"}}
-            >
-                <div className='grid grid-cols-2 px-24 py-6 items-center'>
-                    <div className='pr-8'>
-                        <div style = {{ fontFamily: 'Roboto'}} className='text-5xl'>You’ll wonder how you taught without it</div>
-                        <div className='text-xl pt-4 pr-16'>Engaging media and formative assessments to make every lesson interactive.</div>
+        <div className='min-h-screen flex flex-col '>
+            <NavBar />
+            <div className='flex-1 flex flex-row text-gray-100'>
+                <div className='w-1/4 bg-gray-50 py-4 px-8 space-y-6'>
+                    <div className='text-xl divide-y py-2 border-b-2 border-gray-100'>Search</div>
+                    <div className='grid grid-cols-2 gap-4 pr-4'>
+                        <div className='border-2 rounded-full border-bg-gray-100 text-center p-2 hover:bg-gray-100 hover:text-gray-50'>Lesson</div>
+                        <div className='border-2 rounded-full border-bg-gray-100 text-center p-2 hover:bg-gray-100 hover:text-gray-50'>Activities</div>
+                        <div className='border-2 rounded-full border-bg-gray-100 text-center p-2 hover:bg-gray-100 hover:text-gray-50'>Videos</div>
                     </div>
-                    <div className='flex flex-col items-center justify-content'>
-                        <img className='h-40 w-40 rounded-lg transform translate-y-12' src={ChildTop} />
-                        <img className='h-60 w-60 rounded-lg transform' src={ChildBottom} />
-                    </div>
-                </div>
-                <div className='flex space-x-16 px-24 py-8'>
-                    <div className='h-36 w-60 bg-white rounded-md text-blue-200 space-y-2 flex flex-col items-center justify-center shadow-lg'>
-                        <div className='font-bold'>Students</div>
-                        <input placeholder='ENTER CODE' className='w-3/4 px-8 py-2 border-2 border-blue-200 rounded-full' />
-                        <div>To Join a Lesson</div>
-                    </div>
-                    <div className='h-36 w-60 bg-white rounded-md text-blue-200 space-y-2 flex flex-col items-center justify-center shadow-lg'>
-                        <div className='font-bold'>Teachers</div>
-                        <button className='bg-blue-200 text-white py-2 px-6 rounded-full'>Sign Up for Free</button>
-                        <div>or Log In</div>
-                    </div>
-                    <div className='h-36 w-60 bg-white rounded-md text-blue-200 space-y-2 flex flex-col items-center justify-center shadow-lg'>
-                        <div className='font-bold'>Administrators</div>
-                        <button className='bg-blue-200 text-white py-2 px-6 rounded-full'>Discover More</button>
-                        <div>or Request a Quote</div>
+                    <div className='text-xl divide-y py-2 border-b-2 border-gray-100'>Subjects</div>
+                    <div className='grid grid-cols-2 gap-4 pr-4'>
+                        <div className='border-2 rounded-full border-bg-gray-100 text-center p-2 hover:bg-gray-100 hover:text-gray-50'>English</div>
+                        <div className='border-2 rounded-full border-bg-gray-100 text-center p-2 hover:bg-gray-100 hover:text-gray-50'>Maths</div>
+                        <div className='border-2 rounded-full border-bg-gray-100 text-center p-2 hover:bg-gray-100 hover:text-gray-50'>Science</div>
                     </div>
                 </div>
-            </div> */}
-            {/* <div><P1 /></div> */}
+                <div className='w-3/4'>
+                    <div className='text-3xl text-center py-4 mx-auto'>SHG Library</div>
+                    <div className='grid grid-cols-5 gap-x-2 gap-y-4 py-16 px-8'>
+                        <div className=''>
+                            <img src='https://zl6am32uq1z3zqjczf36sw6c-wpengine.netdna-ssl.com/wp-content/uploads/2020/03/10290_pptd-744x1024.jpg' />
+                            <div className='w-full text-center py-2'>Machine Learning</div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
         </div>
 
     )
 }
 
-export default LandingPage
+export default Library

@@ -23,6 +23,10 @@ module.exports = {
         orange: {
           100: '#FF5722',
         },
+        gray: {
+          50: '#F3F4F8',
+          100: '#5E5D5D',
+        },
       },
       text: ['hover'],
     },

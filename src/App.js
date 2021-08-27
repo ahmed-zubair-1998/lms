@@ -12,6 +12,8 @@ import AdminLogin from './components/AdminLogin'
 import LandingPage from './components/LandingPage'
 import Pricing from './components/Pricing'
 import Quote from './components/Quote'
+import Library from './components/Library'
+import ScheduleDemo from './components/ScheduleDemo'
 
 
 const App = () => {
@@ -35,6 +37,12 @@ const App = () => {
                 </Route>
                 <Route path='/quote'>
                     <Quote />
+                </Route>
+                <Route path='/library'>
+                    <Library />
+                </Route>
+                <Route path='/schedule-demo'>
+                    <ScheduleDemo />
                 </Route>
                 <Route path='/'>
                     <LandingPage />
